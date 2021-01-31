@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+        {# {{ encore_entry_link_tags('app') }} #}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            <div class="header">
+                {% if app.user %}
+                    <h1><a class="name_site" href="{{ path('user') }}">SeeTimes</h1>
+                {% else %}
+                    <h1><a class="name_site" href="{{ path('default') }}">SeeTimes</a></h1>
+                {% endif %}
+                
+                <ul class="ul_register">
+                    {% if app.user %}
+                        <li class="li_compte"><img class="icon_user" src="{{ asset('build/icon_user.png') }}">
+                            <ul class="ul_parametre">
+                                <li class="li_parametre"><a class="btn_compte" href="{{ path('compte') }}">Compte</a></li>
+                                <li class="li_parametre"><a class="btn_logout" href="{{ path('app_logout') }}">Logout</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li class="li_register"> <a class="li_register" href="{{ path('app_register') }}">Register</a></li>
+                        <li class="li_login"> <a class="li_register" href="{{ path('app_login') }}">Login</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

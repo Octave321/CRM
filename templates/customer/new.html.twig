@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Customer{% endblock %}
+
+{% block body %}
+    <h1>{% trans %}create_customer{% endtrans %}</h1>
+
+    {{ include('customer/_form.html.twig') }}
+
+    <a href="{{ path('customer_index') }}">back to list</a><br>
+    <a href="{{ path('user') }}">back to home</a>
+{% endblock %}

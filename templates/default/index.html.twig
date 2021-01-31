@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block stylesheets %} 
+{{ parent() }}
+
+{% endblock %}
+ 
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>{% trans %}welcome_website{% endtrans %}</h1>
+    <p>{% trans %}text_home_page{% endtrans %}</p>
+
+    <a href="{{ path('app_login') }}">Login<a/> or <a href="{{ path('app_register') }}">Register</a>
+
+    {% for message in app.flashes('succes')%}
+        <div class="popup-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <a href="{{ path('') }}">click here</a>
+
+</div>
+{% endblock %}
